@@ -1,0 +1,11 @@
+To make this work on your server, you might also need to configure your web server (like Nginx, Apache, or uWSGI) to have appropriate timeout settings. Here are some recommendations:
+
+If you're using Gunicorn, add these settings to your configuration:
+timeout = 300  # 5 minutes
+workers = 4
+threads = 2
+
+If you're using Nginx as a reverse proxy, add these settings to your server block:
+proxy_connect_timeout 300s;
+proxy_send_timeout 300s;
+proxy_read_timeout 300s;
